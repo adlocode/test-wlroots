@@ -1,0 +1,29 @@
+bin_PROGRAMS = xfway
+
+AM_CPPFLAGS = 					\
+	-DBINDIR='"$(bindir)"'			\
+	-DLIBEXECDIR='"$(libexecdir)"'		
+
+xfway_SOURCES = \
+main.c
+
+xfway_CFLAGS = \
+$(WAYLAND_SERVER_CFLAGS) \
+$(WLROOTS_CFLAGS) \
+$(LIBINPUT_CFLAGS) \
+$(XKBCOMMON_CFLAGS) \
+$(EGL_CFLAGS) \
+$(EVDEV_CFLAGS) \
+$(GTK_CFLAGS) \
+$(LIBXFCONF_CFLAGS)
+
+xfway_LDADD = \
+$(WAYLAND_SERVER_LIBS) \
+$(WLROOTS_LIBS) \
+$(LIBINPUT_LIBS) \
+$(XKBCOMMON_LIBS) \
+$(EGL_LIBS) \
+$(EVDEV_LIBS) \
+$(PIXMAN_LIBS) \
+$(GTK_LIBS) \
+$(LIBXFCONF_LIBS)
